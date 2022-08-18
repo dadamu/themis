@@ -42,7 +42,7 @@ fn get_data_source(application: String) -> i64 {
     } else if application == "domain" {
         return DATA_SOURCE_DOMAIN;
     } else if application == "telegram" {
-        return DATA_SOURCE_TELEGRAM
+        return DATA_SOURCE_TELEGRAM;
     }
 
     panic!("Invalid application type")
