@@ -1,11 +1,12 @@
 use obi::{OBISchema, OBIEncode, OBIDecode};
 use owasm::{execute_entry_point, oei, ext, prepare_entry_point};
 
-const DATA_SOURCE_TWITTER: i64 = 61;
-const DATA_SOURCE_GITHUB: i64 = 63;
-const DATA_SOURCE_DISCORD: i64 = 62;
-const DATA_SOURCE_TWITCH: i64 = 60;
-const DATA_SOURCE_DOMAIN: i64 = 67;
+const DATA_SOURCE_TWITTER: i64 = 49;
+const DATA_SOURCE_GITHUB: i64 = 68;
+const DATA_SOURCE_DISCORD: i64 = 80;
+const DATA_SOURCE_TWITCH: i64 = 90;
+const DATA_SOURCE_DOMAIN: i64 = 221;
+const DATA_SOURCE_TELEGRAM: i64 = 408;
 
 /// CallData contains the data that must be sent when calling this script
 #[derive(OBIEncode, OBIDecode, OBISchema, Debug)]
@@ -40,6 +41,8 @@ fn get_data_source(application: String) -> i64 {
         return DATA_SOURCE_TWITCH;
     } else if application == "domain" {
         return DATA_SOURCE_DOMAIN;
+    } else if application == "telegram" {
+        return DATA_SOURCE_TELEGRAM
     }
 
     panic!("Invalid application type")
